@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<projectDescription>
+  <name>se.idega.idegaweb.commune.school.statistic</name>
+  <comment>
+  </comment>
+  <projects>
+    <project>com.idega.core</project>
+    <project>com.idega.block.process</project>
+    <project>se.idega.idegaweb.commune</project>
+    <project>se.idega.idegaweb.commune.school</project>
+    <project>se.idega.idegaweb.commune.school.music</project>
+  </projects>
+  <buildSpec>
+    <buildCommand>
+      <name>org.eclipse.jdt.core.javabuilder</name>
+      <arguments>
+      </arguments>
+    </buildCommand>
+  </buildSpec>
+  <natures>
+    <nature>org.eclipse.jdt.core.javanature</nature>
+  </natures>
+</projectDescription>
