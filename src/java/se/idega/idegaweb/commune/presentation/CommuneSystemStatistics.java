@@ -33,7 +33,7 @@ public class CommuneSystemStatistics extends CommuneBlock {
 	private int citizenAccountCount = 0;
 
 	private void init(IWContext iwc) throws Exception {
-		String[] validStatuses = new String[] { SchoolChoiceBMPBean.CASE_STATUS_PRELIMINARY, SchoolChoiceBMPBean.CASE_STATUS_MOVED };
+		String[] validStatuses = new String[] { SchoolChoiceBMPBean.CASE_STATUS_PLACED, SchoolChoiceBMPBean.CASE_STATUS_PRELIMINARY, SchoolChoiceBMPBean.CASE_STATUS_MOVED };
 		int tempSCC = getSchoolChoiceHome().getCount(validStatuses);
 		if (tempSCC > 0) {
 			schoolChoicesCount = tempSCC;	
