@@ -10,6 +10,7 @@ import com.idega.business.IBOLookup;
 import com.idega.idegaweb.IWApplicationContext;
 import com.idega.presentation.IWContext;
 import com.idega.presentation.Table;
+import com.idega.presentation.text.Text;
 
 /**
  * @author gimmi
@@ -28,6 +29,7 @@ public class CommuneSystemStatistics extends CommuneBlock {
 	private String MUSIC_SCHOOL_CHOICES_DEFAULT = "Music school choices - first hand";
 	
 	private boolean showHeader = true;
+	private String styleClass=null;
 	
 	private int schoolChoicesCount = 0;
 	private int citizenAccountCount = 0;
@@ -61,18 +63,42 @@ public class CommuneSystemStatistics extends CommuneBlock {
 			table.add(getSmallHeader(getResourceBundle().getLocalizedString(HEADER_KEY, HEADER_DEFAULT)), 1, row++);
 		}
 		if (isShowAccountStatistics()) {
-			table.add(getSmallText(getResourceBundle().getLocalizedString(CITIZEN_ACOUNT_APPLICATIONS_KEY, CITIZEN_ACOUNT_APPLICATIONS_DEFAULT)), 1, row);
-			table.add(getSmallText(Integer.toString(citizenAccountCount)), 2, row++);
+			if (styleClass != null){
+				table.add(getStyledClass(getResourceBundle().getLocalizedString(CITIZEN_ACOUNT_APPLICATIONS_KEY, CITIZEN_ACOUNT_APPLICATIONS_DEFAULT)), 1, row);
+				table.add(getStyledClass(Integer.toString(citizenAccountCount)), 2, row++);
+				
+			}
+			else {
+				table.add(getSmallText(getResourceBundle().getLocalizedString(CITIZEN_ACOUNT_APPLICATIONS_KEY, CITIZEN_ACOUNT_APPLICATIONS_DEFAULT)), 1, row);
+				table.add(getSmallText(Integer.toString(citizenAccountCount)), 2, row++);	
+			}
+			
 		}
 		if (isShowChoiceStatistics()) {
-			table.add(getSmallText(getResourceBundle().getLocalizedString(SCHOOL_CHOICES_KEY, SCHOOL_CHOICES_DEFAULT)), 1, row);
-			table.add(getSmallText(Integer.toString(schoolChoicesCount)), 2, row++);
+			if (styleClass != null){
+				table.add(getStyledClass(getResourceBundle().getLocalizedString(SCHOOL_CHOICES_KEY, SCHOOL_CHOICES_DEFAULT)), 1, row);
+				table.add(getStyledClass(Integer.toString(schoolChoicesCount)), 2, row++);	
+			}
+			else {
+				table.add(getSmallText(getResourceBundle().getLocalizedString(SCHOOL_CHOICES_KEY, SCHOOL_CHOICES_DEFAULT)), 1, row);
+				table.add(getSmallText(Integer.toString(schoolChoicesCount)), 2, row++);	
+			}
+			
 		}
 		if (isShowMusicChoiceStatistics()) {
-			table.add(getSmallText(getResourceBundle().getLocalizedString(MUSIC_SCHOOL_CHOICES_TOTAL_KEY, MUSIC_SCHOOL_CHOICES_TOTAL_DEFAULT)), 1, row);
-			table.add(getSmallText(Integer.toString(musicChoicesCountTotal)), 2, row++);
-			table.add(getSmallText(getResourceBundle().getLocalizedString(MUSIC_SCHOOL_CHOICES_KEY, MUSIC_SCHOOL_CHOICES_DEFAULT)), 1, row);
-			table.add(getSmallText(Integer.toString(musicChoicesCount)), 2, row++);
+			if (styleClass != null){
+				table.add(getStyledClass(getResourceBundle().getLocalizedString(MUSIC_SCHOOL_CHOICES_TOTAL_KEY, MUSIC_SCHOOL_CHOICES_TOTAL_DEFAULT)), 1, row);
+				table.add(getStyledClass(Integer.toString(musicChoicesCountTotal)), 2, row++);
+				table.add(getStyledClass(getResourceBundle().getLocalizedString(MUSIC_SCHOOL_CHOICES_KEY, MUSIC_SCHOOL_CHOICES_DEFAULT)), 1, row);
+				table.add(getStyledClass(Integer.toString(musicChoicesCount)), 2, row++);
+			}
+			else{
+				table.add(getSmallText(getResourceBundle().getLocalizedString(MUSIC_SCHOOL_CHOICES_TOTAL_KEY, MUSIC_SCHOOL_CHOICES_TOTAL_DEFAULT)), 1, row);
+				table.add(getSmallText(Integer.toString(musicChoicesCountTotal)), 2, row++);
+				table.add(getSmallText(getResourceBundle().getLocalizedString(MUSIC_SCHOOL_CHOICES_KEY, MUSIC_SCHOOL_CHOICES_DEFAULT)), 1, row);
+				table.add(getSmallText(Integer.toString(musicChoicesCount)), 2, row++);
+			}
+			
 		}
 		add(table);
 	}
@@ -94,6 +120,10 @@ public class CommuneSystemStatistics extends CommuneBlock {
 	
 	protected MusicSchoolBusiness getMusicSchoolBusiness(IWApplicationContext iwac) throws RemoteException {
 		return (MusicSchoolBusiness) IBOLookup.getServiceInstance(iwac, MusicSchoolBusiness.class);	
+	}
+	
+	public Text getStyledClass(String s) {
+		return getStyleText(s, styleClass);
 	}
 	
 	/**
@@ -154,5 +184,13 @@ public class CommuneSystemStatistics extends CommuneBlock {
 	 */
 	public void setShowHeader(boolean showHeader) {
 		this.showHeader = showHeader;	
+	}
+	/**
+	 * Sets the styleClass.
+	 * @param styleClass The styleClass to set
+	 */
+	public void setStyleClass(String styleClass)
+	{
+		this.styleClass = styleClass;
 	}
 }
