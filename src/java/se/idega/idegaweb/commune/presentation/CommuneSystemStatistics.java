@@ -42,7 +42,7 @@ public class CommuneSystemStatistics extends CommuneBlock {
 		}
 	}
 
-	private void drawTable(IWContext iwc) {
+	private void drawTable() {
 		Table table = new Table();
 		int row = 1;
 		if (isShowHeader()) {
@@ -64,7 +64,7 @@ public class CommuneSystemStatistics extends CommuneBlock {
 	public void main(IWContext iwc) throws Exception {
 		super.main(iwc);
 		init(iwc);
-		drawTable(iwc);	
+		drawTable();	
 	}
 	
 	protected SchoolChoiceBusiness getSchoolChoiceBusiness(IWApplicationContext iwac) throws RemoteException {
