@@ -4,7 +4,6 @@ import java.rmi.RemoteException;
 
 import se.idega.idegaweb.commune.account.citizen.business.CitizenAccountBusiness;
 import se.idega.idegaweb.commune.school.business.SchoolChoiceBusiness;
-import se.idega.idegaweb.commune.school.data.SchoolChoiceBMPBean;
 
 import com.idega.business.IBOLookup;
 import com.idega.idegaweb.IWApplicationContext;
@@ -33,8 +32,7 @@ public class CommuneSystemStatistics extends CommuneBlock {
 	
 	private void init(IWContext iwc) throws Exception {
 		if (isShowChoiceStatistics()) {
-			String[] validStatuses = new String[] { SchoolChoiceBMPBean.CASE_STATUS_PLACED, SchoolChoiceBMPBean.CASE_STATUS_PRELIMINARY, SchoolChoiceBMPBean.CASE_STATUS_MOVED };
-			schoolChoicesCount = getSchoolChoiceBusiness(iwc).getNumberOfApplicants(validStatuses);	
+			schoolChoicesCount = getSchoolChoiceBusiness(iwc).getNumberOfApplicants();	
 		}
 
 		if (isShowAccountStatistics()) {
