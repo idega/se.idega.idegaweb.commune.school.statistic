@@ -48,7 +48,7 @@ public class CommuneSystemStatistics extends CommuneBlock {
 	private int musicChoicesCount = 0;
 	private int providerVacanciesCount = 0;
 	
-	private ChildCareBusiness business;
+	//private ChildCareBusiness business;
 	
 	private boolean showAccountStatistics;
 	private boolean showChoiceStatistics;
