@@ -19,6 +19,10 @@
   </classpathentry>
   <classpathentry kind="src" path="/se.idega.idegaweb.commune.school.music">
   </classpathentry>
+  <classpathentry kind="src" path="/se.idega.idegaweb.commune.childcare">
+  </classpathentry>
+  <classpathentry kind="src" path="/com.idega.block.school">
+  </classpathentry>
   <classpathentry kind="output" path="target/classes">
   </classpathentry>
 </classpath>
