@@ -5,7 +5,7 @@
   </classpathentry>
   <classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER">
   </classpathentry>
-  <classpathentry kind="var" path="MAVEN_REPO/myfaces/jars/jsf-api-1.0.jar">
+  <classpathentry kind="var" path="MAVEN_REPO/myfaces/jars/myfaces-jsf-api-1.0.9.jar">
   </classpathentry>
   <classpathentry kind="var" path="MAVEN_REPO/ejb/jars/ejb-2.0.jar">
   </classpathentry>
