@@ -8,6 +8,7 @@
     <project>com.idega.core</project>
     <project>com.idega.block.process</project>
     <project>se.idega.idegaweb.commune</project>
+    <project>se.idega.idegaweb.commune.accounting</project>
     <project>se.idega.idegaweb.commune.school</project>
     <project>se.idega.idegaweb.commune.school.music</project>
     <project>se.idega.idegaweb.commune.childcare</project>
