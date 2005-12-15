@@ -1,5 +1,6 @@
 package se.idega.idegaweb.commune.presentation;
 
+import is.idega.idegaweb.egov.musicschool.business.MusicSchoolBusiness;
 import java.rmi.RemoteException;
 import java.util.Collection;
 import java.util.Iterator;
@@ -10,7 +11,6 @@ import se.idega.idegaweb.commune.account.citizen.business.CitizenAccountBusiness
 import se.idega.idegaweb.commune.childcare.business.ChildCareBusiness;
 import se.idega.idegaweb.commune.childcare.data.ChildCarePrognosis;
 import se.idega.idegaweb.commune.school.business.SchoolChoiceBusiness;
-import se.idega.idegaweb.commune.school.music.business.MusicSchoolBusiness;
 
 import com.idega.block.school.data.School;
 import com.idega.business.IBOLookup;
