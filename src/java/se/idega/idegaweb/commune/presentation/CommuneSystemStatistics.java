@@ -57,20 +57,20 @@ public class CommuneSystemStatistics extends CommuneBlock {
 	
 	private void init(IWContext iwc) throws Exception {
 		if (isShowChoiceStatistics()) {
-			schoolChoicesCount = getSchoolChoiceBusiness(iwc).getNumberOfApplicants();	
+			this.schoolChoicesCount = getSchoolChoiceBusiness(iwc).getNumberOfApplicants();	
 		}
 
 		if (isShowAccountStatistics()) {
-			citizenAccountCount = getCitizenAccountBusiness(iwc).getNumberOfApplications();
+			this.citizenAccountCount = getCitizenAccountBusiness(iwc).getNumberOfApplications();
 		}
 		
 		if (isShowMusicChoiceStatistics()) {
-			musicChoicesCountTotal = getMusicSchoolBusiness(iwc).getMusicSchoolStatistics(false);
-			musicChoicesCount = getMusicSchoolBusiness(iwc).getMusicSchoolStatistics(true);
+			this.musicChoicesCountTotal = getMusicSchoolBusiness(iwc).getMusicSchoolStatistics(false);
+			this.musicChoicesCount = getMusicSchoolBusiness(iwc).getMusicSchoolStatistics(true);
 		}
 		
-		if (showChildCareVacanices){
-			providerVacanciesCount = getProviderVacancies(iwc);	
+		if (this.showChildCareVacanices){
+			this.providerVacanciesCount = getProviderVacancies(iwc);	
 		}
 						
 		
@@ -82,27 +82,27 @@ public class CommuneSystemStatistics extends CommuneBlock {
 		
 		if (isShowHeader()) {
 			table.mergeCells(1, row, 2, row);
-			table.add(getSmallHeader(getResourceBundle().getLocalizedString(HEADER_KEY, HEADER_DEFAULT)), 1, row++);
+			table.add(getSmallHeader(getResourceBundle().getLocalizedString(this.HEADER_KEY, this.HEADER_DEFAULT)), 1, row++);
 		}
 		if (isShowAccountStatistics()) {
-			table.add(getWhichStyle(getResourceBundle().getLocalizedString(CITIZEN_ACOUNT_APPLICATIONS_KEY, CITIZEN_ACOUNT_APPLICATIONS_DEFAULT)), 1, row);
-			table.add(getWhichStyle(Integer.toString(citizenAccountCount)), 2, row++);
+			table.add(getWhichStyle(getResourceBundle().getLocalizedString(this.CITIZEN_ACOUNT_APPLICATIONS_KEY, this.CITIZEN_ACOUNT_APPLICATIONS_DEFAULT)), 1, row);
+			table.add(getWhichStyle(Integer.toString(this.citizenAccountCount)), 2, row++);
 		}
 		if (isShowChoiceStatistics()){
-			table.add(getWhichStyle(getResourceBundle().getLocalizedString(SCHOOL_CHOICES_KEY, SCHOOL_CHOICES_DEFAULT)), 1, row);
-			table.add(getWhichStyle(Integer.toString(schoolChoicesCount)), 2, row++);	
+			table.add(getWhichStyle(getResourceBundle().getLocalizedString(this.SCHOOL_CHOICES_KEY, this.SCHOOL_CHOICES_DEFAULT)), 1, row);
+			table.add(getWhichStyle(Integer.toString(this.schoolChoicesCount)), 2, row++);	
 		}
 		
-		if (showChildCareVacanices){
-			table.add(getWhichStyle(getResourceBundle().getLocalizedString(CHILDCARE_VACANCIES_KEY, CHILDCARE_VACANCIES_DEFAULT)), 1, row);
-			table.add(getWhichStyle(Integer.toString(providerVacanciesCount)), 2, row++);	
+		if (this.showChildCareVacanices){
+			table.add(getWhichStyle(getResourceBundle().getLocalizedString(this.CHILDCARE_VACANCIES_KEY, this.CHILDCARE_VACANCIES_DEFAULT)), 1, row);
+			table.add(getWhichStyle(Integer.toString(this.providerVacanciesCount)), 2, row++);	
 		}
 		
 		if (isShowMusicChoiceStatistics()) {
-			table.add(getWhichStyle(getResourceBundle().getLocalizedString(MUSIC_SCHOOL_CHOICES_TOTAL_KEY, MUSIC_SCHOOL_CHOICES_TOTAL_DEFAULT)), 1, row);
-			table.add(getWhichStyle(Integer.toString(musicChoicesCountTotal)), 2, row++);
-			table.add(getWhichStyle(getResourceBundle().getLocalizedString(MUSIC_SCHOOL_CHOICES_KEY, MUSIC_SCHOOL_CHOICES_DEFAULT)), 1, row);
-			table.add(getWhichStyle(Integer.toString(musicChoicesCount)), 2, row++);
+			table.add(getWhichStyle(getResourceBundle().getLocalizedString(this.MUSIC_SCHOOL_CHOICES_TOTAL_KEY, this.MUSIC_SCHOOL_CHOICES_TOTAL_DEFAULT)), 1, row);
+			table.add(getWhichStyle(Integer.toString(this.musicChoicesCountTotal)), 2, row++);
+			table.add(getWhichStyle(getResourceBundle().getLocalizedString(this.MUSIC_SCHOOL_CHOICES_KEY, this.MUSIC_SCHOOL_CHOICES_DEFAULT)), 1, row);
+			table.add(getWhichStyle(Integer.toString(this.musicChoicesCount)), 2, row++);
 			
 			
 		}
@@ -142,8 +142,9 @@ public class CommuneSystemStatistics extends CommuneBlock {
 				
 				if (prognosis != null) {
 					int providerVacancies = prognosis.getVacancies();
-					if (providerVacancies!= -1)
+					if (providerVacancies!= -1) {
 						providerVacanciesSum += providerVacancies;
+					}
 				}
 				
 			}
@@ -166,7 +167,7 @@ public class CommuneSystemStatistics extends CommuneBlock {
 	
 		
 	public Text getWhichStyle(String s){
-		if (styleClass != null){
+		if (this.styleClass != null){
 			return getStyledClass(s);
 		}
 		else{
@@ -175,7 +176,7 @@ public class CommuneSystemStatistics extends CommuneBlock {
 	}
 	
 	public Text getStyledClass(String s) {
-		return getStyleText(s, styleClass);
+		return getStyleText(s, this.styleClass);
 	}
 	
 	
@@ -183,28 +184,28 @@ public class CommuneSystemStatistics extends CommuneBlock {
 	 * @return boolean
 	 */
 	public boolean isShowMusicChoiceStatistics() {
-		return showMusicChoiceStatistics;
+		return this.showMusicChoiceStatistics;
 	}
 
 	/**
 	 * @return boolean
 	 */
 	public boolean isShowAccountStatistics() {
-		return showAccountStatistics;
+		return this.showAccountStatistics;
 	}
 
 	/**
 	 * @return boolean
 	 */
 	public boolean isShowChoiceStatistics() {
-		return showChoiceStatistics;
+		return this.showChoiceStatistics;
 	}
 
 	/**
 	 * @return boolean
 	 */
 	public boolean isShowHeader() {
-		return showHeader;
+		return this.showHeader;
 	}
 
 	/**
