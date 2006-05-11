@@ -13,6 +13,7 @@
     <project>is.idega.idegaweb.egov.musicschool</project>
     <project>se.idega.idegaweb.commune.childcare</project>
     <project>com.idega.block.school</project>
+    <project>com.idega.block.web2.0</project>
   </projects>
   <buildSpec>
     <buildCommand>
