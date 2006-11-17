@@ -1,6 +1,5 @@
 package se.idega.idegaweb.commune.presentation;
 
-import is.idega.idegaweb.egov.musicschool.business.MusicSchoolBusiness;
 import java.rmi.RemoteException;
 import java.util.Collection;
 import java.util.Iterator;
@@ -62,11 +61,6 @@ public class CommuneSystemStatistics extends CommuneBlock {
 
 		if (isShowAccountStatistics()) {
 			this.citizenAccountCount = getCitizenAccountBusiness(iwc).getNumberOfApplications();
-		}
-		
-		if (isShowMusicChoiceStatistics()) {
-			this.musicChoicesCountTotal = getMusicSchoolBusiness(iwc).getMusicSchoolStatistics(false);
-			this.musicChoicesCount = getMusicSchoolBusiness(iwc).getMusicSchoolStatistics(true);
 		}
 		
 		if (this.showChildCareVacanices){
@@ -161,11 +155,6 @@ public class CommuneSystemStatistics extends CommuneBlock {
 		return (CitizenAccountBusiness) IBOLookup.getServiceInstance(iwac, CitizenAccountBusiness.class);	
 	}
 	
-	protected MusicSchoolBusiness getMusicSchoolBusiness(IWApplicationContext iwac) throws RemoteException {
-		return (MusicSchoolBusiness) IBOLookup.getServiceInstance(iwac, MusicSchoolBusiness.class);	
-	}
-	
-		
 	public Text getWhichStyle(String s){
 		if (this.styleClass != null){
 			return getStyledClass(s);
